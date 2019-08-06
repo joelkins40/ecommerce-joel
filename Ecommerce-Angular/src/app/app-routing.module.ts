@@ -8,7 +8,9 @@ import { PageNotFoundComponent } from './store/page-not-found/page-not-found.com
 
 const routes:Routes=[
 
-  {path:'store',component:StoreComponent},
+  {path:'store',component:StoreComponent
+
+},
   {path:'cart',component:CartComponent},
   {path:'checkout',component:CheckoutComponent},
   {path:'',redirectTo:'/store',pathMatch:'full'},

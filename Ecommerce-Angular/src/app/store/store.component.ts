@@ -3,6 +3,7 @@ import { ProductRepositoryService } from '../model/product-repository.service';
 import { Product } from '../model/product';
 import { DepartamentRepositoryService } from '../model/departament-repository.service';
 import { Cart } from '../model/cart';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -17,7 +18,7 @@ public productPerPage=12;
 
 public selectedPage=1;
 
-  constructor(private productRepoService:ProductRepositoryService,private setet:Cart) {
+  constructor(private productRepoService:ProductRepositoryService,private setet:Cart,private routes:Router) {
     
     
     

@@ -8,12 +8,12 @@ export class Cart {
 public joel:Product[]=[];
     addLine(product:Product,quantity:number=1){
    
-        const line=this.lines.find(line=>line.product.productCode===product.productCode);
-        if(line==undefined){
+        const lines=this.lines.find(line=>line.product.productCode===product.productCode);
+        if(lines==undefined){
             this.lines.push(new CartLine(product,quantity));
           
             }else{
-                line.quantity+=quantity;
+                lines.quantity+=quantity;
 
                 }
                 this.recalculate();

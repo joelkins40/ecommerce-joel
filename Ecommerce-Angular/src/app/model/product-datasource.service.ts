@@ -24,4 +24,10 @@ private baseUrl:string;
       return this.httpClient.get(this.baseUrl+'/productline');
       
     } 
+    getorders():any {
+      return this.httpClient.get(this.baseUrl+'/orders');
+    }
+    getordersdetail():any {
+      return this.httpClient.get(this.baseUrl+'/orderdetail');
+    }
 }

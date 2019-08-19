@@ -54,6 +54,59 @@ return array(
 }
 
     
+public function selectOrder(){
+
+    $sth=$this->db->pdo->prepare("select * from orders");
+    $sth->execute();
+    $registros=$sth->fetchAll(\PDO::FETCH_ASSOC);
+    if(!is_null($sth->errorInfo()[1]) ){
+        return array(
+            'Error'=>false,
+            'description'=>$sth->errorInfo()[2]
+        );
+    }else if(empty($registros)){
+        return array(
+            'noFound'=>true,
+            'description'=>'The table is empty'
+        );
+    }
+        return array(
+        'success'=>true,
+        'description'=> 'The Orders were found',
+        'Order'=>$registros);
+
+}
+
+public function selectOrderdetail(){
+    
+    
+    
+        $sth=$this->db->pdo->prepare("select * from orderdetails,products where  orderdetails.productCode=products.productCode");
+        
+        $sth->execute();
+      
+        $registros=$sth->fetchAll(\PDO::FETCH_ASSOC);
+        if(!is_null($sth->errorInfo()[1])){
+            return array(
+                'Error'=>false,
+                'description'=>$sth->errorInfo()[2]
+            );
+        }else if(empty($registros)){
+            return array(
+                'noFound'=>true,
+                'description'=>'The table is empty'
+            );
+        }
+            return array(
+            'success'=>true,
+            'description'=> 'The order were found',
+            'orderdetail'=>$registros);
+    
+    }
+
+
+
+
 
 }
   

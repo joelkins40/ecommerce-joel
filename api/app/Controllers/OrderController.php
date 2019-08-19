@@ -11,7 +11,18 @@ class OrderController extends Controllers{
    return json_encode($message);
    
     }
-
+    function selectOrder($request,$response){
+        
+        $message=$this->OrderModel->selectOrder();
+        
+        return json_encode($message);
+            }
+            function selectOrderdetail($request,$response){
+        
+                $message=$this->OrderModel->selectOrderdetail();
+                
+                return json_encode($message);
+                    }
 
 }
 
